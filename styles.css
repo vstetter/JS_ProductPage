@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0; }
+
+/* section {
+
+} */
+h1, h3, p {
+  font-family: sans-serif;
+  text-align: center; }
+
+h1 {
+  font-size: 2em; }
+
+h3 {
+  font-size: 1em;
+  margin: 0;
+  padding: 0.25em; }
+
+p {
+  font-size: 0.75em;
+  margin: 0;
+  padding: 0.25em; }
+
+section {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0; }
+
+article {
+  display: inline-block;
+  vertical-align: top;
+  width: 28%;
+  padding: 2em; }
+
+img {
+  display: block;
+  margin: 0 auto;
+  padding: 0.75em; }

@@ -1,0 +1,20 @@
+{
+  "name": "jsProductPage",
+  "version": "0.0.0",
+  "authors": [
+    "Veronika <vstetter@hotmail.com>"
+  ],
+  "description": "first ProductPage with object literals",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
