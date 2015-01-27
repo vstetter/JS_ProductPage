@@ -28,22 +28,34 @@ p {
   padding: 0.25em;
 }
 
-section {
-  display: block;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
 
 article {
   display: inline-block;
   vertical-align: top;
-  width: 28%;
+  width: 20%;
   padding: 2em;
 }
 
 img {
-  display: block;
+/*   display: block; */
   margin: 0 auto;
   padding: 0.75em;
+}
+
+
+section, aside {
+  display: inline-block;
+  vertical-align:top;
+}
+
+section {
+  width: 70%;
+  margin: 0;
+  padding: 0;
+}
+
+
+aside {
+  width: 25%;
+  padding: 0em;
 }
