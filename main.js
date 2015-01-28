@@ -22,10 +22,10 @@ var productPage ={
     $('section').on('click', '.editProduct', function (event) {
       event.preventDefault();
       $(this).closest('article').find('.editform').toggleClass('active');
-
     });
 
-    $('section').on('click', '.UpdateWholeProduct', function(){
+    $('section').on('click', '.UpdateWholeProduct', function(event){
+      event.preventDefault();
 
       var thisIndex = $(this).closest('article').data('index');
 
@@ -41,11 +41,10 @@ var productPage ={
 
       productPage.renderAllProducts(products);
 
-
-
-
-
+      // productPage.updateProduct();
     });
+
+
 
     // console.log("called init events");
   },
@@ -59,9 +58,10 @@ var productPage ={
     };
 
     products.push(newProduct);
+    productPage.renderAllProducts(products);
 
 
-    productPage.renderProduct(newProduct, products.indexOf(newProduct));
+    // productPage.renderProduct(newProduct, products.indexOf(newProduct));
 
     $('.box input').val('');
     $('.box textarea').val('');
@@ -70,21 +70,6 @@ var productPage ={
 
   updateProduct: function () {
 
-    // access values of current product
-
-    // var productIndex = $(this).closest('article').data('index');
-
-    // var title = $(this).siblings('.title').val();
-    //
-    //
-    //
-
-
-    // $('.box input[name="productName"]').val(title);
-
-    // display in input fields (form?) to edit
-    // on click of "edit" button, save new values to existing product on DOM
-    // save new values to current product in products array (splice old values, )
 
 
   },
@@ -95,24 +80,37 @@ var productPage ={
 
     console.log(productIndex);
     products.splice(productIndex, 1);
+    productPage.renderAllProducts(products);
 
-    $(this).closest('article').remove();
+    // $(this).closest('article').remove();
+  },
 
+  compileTmpl: function (data, tmpl) {
+
+    var tmpl = _.template(tmpl);
+    return tmpl(data);
+
+  // renderProduct: function(product, index, array) {
+  //   product.idx = index;
+  //   var compiled = _.template(templates.product);
+  //
+  //   $("section").prepend(compiled(product));
 
   },
 
-  renderProduct: function(product, index, array) {
-    product.idx = index;
-    var compiled = _.template(templates.product);
+  renderAllProducts: function (allProducts) {
 
-    $("section").prepend(compiled(product));
+    var tmplStr = "";
+    var compiledTmpl = _.template(templates.product);
 
+    _.each(allProducts, function (item, index, arr) {
+      item.idx = index;
+      tmplStr += compiledTmpl(item);
+    });
 
-  },
+    $("section").html(tmplStr);
 
-  renderAllProducts: function(allProducts) {
-
-    _.each(allProducts, productPage.renderProduct)
+    // _.each(allProducts, productPage.renderProduct)
 
   }
 

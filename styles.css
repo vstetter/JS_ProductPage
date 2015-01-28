@@ -51,5 +51,8 @@ aside {
   width: 25%;
   padding: 0em; }
 
+.editform {
+  display: block; }
+
 .active {
   display: block; }
