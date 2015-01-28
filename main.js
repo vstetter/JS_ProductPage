@@ -19,6 +19,34 @@ var productPage ={
 
     $('section').on('click', '.deleteProduct', productPage.deleteProduct);
 
+    $('section').on('click', '.editProduct', function (event) {
+      event.preventDefault();
+      $(this).closest('article').find('.editform').toggleClass('active');
+
+    });
+
+    $('section').on('click', '.UpdateWholeProduct', function(){
+
+      var thisIndex = $(this).closest('article').data('index');
+
+      var updatedProduct = {
+
+        image: $(this).closest('article').find('input.editImage').val(),
+        productName: $(this).closest('article').find('input.editproductName').val(),
+        price: $(this).closest('article').find('input.editprice').val(),
+        productDescription: $(this).closest('article').find('input.editproductDescription').val()
+      };
+
+      products.splice(thisIndex, 1, updatedProduct);
+
+      productPage.renderAllProducts(products);
+
+
+
+
+
+    });
+
     // console.log("called init events");
   },
 
@@ -43,6 +71,17 @@ var productPage ={
   updateProduct: function () {
 
     // access values of current product
+
+    // var productIndex = $(this).closest('article').data('index');
+
+    // var title = $(this).siblings('.title').val();
+    //
+    //
+    //
+
+
+    // $('.box input[name="productName"]').val(title);
+
     // display in input fields (form?) to edit
     // on click of "edit" button, save new values to existing product on DOM
     // save new values to current product in products array (splice old values, )
