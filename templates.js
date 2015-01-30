@@ -11,6 +11,7 @@
 var templates = {};
 
 templates.product = [
+
 "<article data-index='<%= idx %>'>",
 "<img src = <%= image %> alt=''>",
 "<h3><%= productName %></h3>",
